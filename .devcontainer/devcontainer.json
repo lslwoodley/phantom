@@ -1,18 +1,24 @@
 {
-  "name": "Phantom Dev Environment",
-  "build": {
-    "dockerfile": "Dockerfile"
+  "name": "Phantom DevContainer",
+  "dockerFile": "Dockerfile",
+  "context": "..",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-azuretools.vscode-azurefunctions",
+        "ms-vscode.azurecli",
+        "esbenp.prettier-vscode"
+      ]
+    }
   },
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
-  "postCreateCommand": "bash scripts/bootstrap/phantom-bootstrap-devcontainer.sh",
-  "forwardPorts": [8000, 3000, 5000],
-  "remoteUser": "vscode",
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-  },
+  "postCreateCommand": "python -m venv phantom-env && source phantom-env/bin/activate && pip install -r requirements.txt || true",
   "mounts": [
-    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
-  ]
+    "source=${localWorkspaceFolder}/.env,target=/workspace/.env,type=bind,consistency=cached"
+  ],
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest"
+    }
+  }
 }

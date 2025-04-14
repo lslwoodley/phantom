@@ -1,0 +1,43 @@
+# Core Framework
+fastapi
+uvicorn[standard]
+
+# Routing and Embedding
+semantic-router[hybrid]
+
+# Async HTTP and LLM Communication
+httpx
+openai
+
+# Background Processing
+aiofiles
+
+# Data Models and Validation
+pydantic
+
+# WebSocket Support
+websockets
+
+# Environment Variables
+python-dotenv
+
+# Azure Integration
+azure-identity
+azure-ai-ml
+azure-core
+azure-storage-blob
+azure-search-documents
+azure-mgmt-resource
+
+# Monitoring and Logging
+opencensus-ext-azure
+loguru
+
+# Optional: Data Handling
+numpy
+
+# Telemetry (optional)
+tqdm
+
+# For testing
+pytest

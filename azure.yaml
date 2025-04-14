@@ -1,0 +1,21 @@
+name: phantom-ai-platform
+metadata:
+  template: phantom-ai
+services:
+  backend:
+    project: /backend
+    language: docker
+    host: containerapp
+    docker:
+      path: Dockerfile
+  frontend:
+    project: frontend
+    language: js
+    host: containerapp
+    docker:
+      path: Dockerfile
+infra:
+  provider: bicep
+  path: infra
+
+

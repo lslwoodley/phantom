@@ -1,17 +1,25 @@
-FROM mcr.microsoft.com/devcontainers/base:ubuntu
+# .devcontainer/Dockerfile
+FROM python:3.12-slim
 
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
-    curl gnupg software-properties-common \
-    ca-certificates git lsb-release unzip \
-    wget docker.io docker-compose \
-    python3 python3-pip python3-venv \
-    nodejs npm && apt-get clean
+    curl \
+    git \
+    build-essential \
+    libssl-dev \
+    libffi-dev \
+    libpq-dev \
+    docker.io \
+    azure-cli \
+    gnupg \
+    && rm -rf /var/lib/apt/lists/*
 
-SHELL ["/bin/bash", "-c"]
+# Install azd (Azure Developer CLI)
+RUN curl -fsSL https://aka.ms/install-azd.sh | bash
 
-ENV VIRTUAL_ENV=/workspace/phantom-env
-RUN python3 -m venv $VIRTUAL_ENV && \
-    echo "source $VIRTUAL_ENV/bin/activate" >> ~/.bashrc
+# Install Node.js (needed for frontend & telemetry)
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
+    apt-get install -y nodejs
 
-RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash && \
-    curl -fsSL https://aka.ms/azd/install.sh | bash
+# Set workdir and create venv
+WORKDIR /workspace

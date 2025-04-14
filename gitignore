@@ -1,0 +1,16 @@
+# 🔒 Secrets
+.env
+.env.*
+!*.template
+
+# 💡 VSCode
+.vscode/
+
+# 🐍 Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 🐳 Docker
+*.log

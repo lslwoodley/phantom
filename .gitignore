@@ -1,0 +1,37 @@
+# 🔒 Secrets
+.env
+.env.*
+!*.template
+
+# 💡 VSCode
+.vscode/
+
+# 🐍 Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 🐳 Docker
+*.log
+# ---- Phantom ignore rules --------------------------------
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+*.egg-info/
+
+# VS Code / Dev-container
+.vscode/
+.devcontainer/
+
+# Environment / secrets
+.env
+.env.*
+scripts/bootstrap/.env
+
+# OS misc
+.DS_Store
+Thumbs.db
+# ----------------------------------------------------------

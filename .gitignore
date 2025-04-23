@@ -35,3 +35,4 @@ scripts/bootstrap/.env
 .DS_Store
 Thumbs.db
 # ----------------------------------------------------------
+scripts/bootstrap/.env

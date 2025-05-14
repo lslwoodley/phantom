@@ -14,3 +14,23 @@ __pycache__/
 
 # 🐳 Docker
 *.log
+# Python virtual environments
+phantom-env/
+__pycache__/
+
+# VS Code / Dev Containers
+.vscode/
+.devcontainer/
+
+# Credentials and local files
+.env
+*.env
+*.key
+*.pem
+
+# Build artifacts
+*.pyc
+*.pyo
+*.log
+logs/
+telemetry_logs/

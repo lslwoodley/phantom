@@ -15,6 +15,9 @@ from app.models.telemetry_model import TelemetryLog
 from app.auth.msal_auth import EntraRBAC
 from sqlmodel import Session, select
 from datetime import datetime, timedelta
+from app.handlers import telemetry_query_postgres
+
+
 import json
 import uuid
 import os
@@ -22,6 +25,7 @@ import asyncio
 from typing import Optional, List
 
 app = FastAPI(title="Phantom AI Platform", version="0.1.0")
+app.include_router(telemetry_query_postgres.router)
 
 # Load settings
 env = get_settings()

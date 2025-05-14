@@ -1,0 +1,75 @@
+{
+  "name": "phantom-docs",
+  "fields": [
+    {
+      "name": "id",
+      "type": "Edm.String",
+      "key": true
+    },
+    {
+      "name": "content",
+      "type": "Edm.String",
+      "searchable": true
+    },
+    {
+      "name": "title",
+      "type": "Edm.String",
+      "searchable": true,
+      "facetable": true
+    },
+    {
+      "name": "oids",
+      "type": "Collection(Edm.String)",
+      "filterable": true
+    },
+    {
+      "name": "groups",
+      "type": "Collection(Edm.String)",
+      "filterable": true
+    },
+    {
+      "name": "isPublic",
+      "type": "Edm.Boolean",
+      "filterable": true
+    },
+    {
+      "name": "doc_type",
+      "type": "Edm.String",
+      "searchable": true,
+      "facetable": true
+    },
+    {
+      "name": "tags",
+      "type": "Collection(Edm.String)",
+      "searchable": true,
+      "facetable": true
+    },
+    {
+      "name": "domain",
+      "type": "Edm.String",
+      "searchable": true,
+      "facetable": true
+    },
+    {
+      "name": "embedding",
+      "type": "Collection(Edm.Single)",
+      "searchable": true,
+      "vectorSearchDimensions": 1536,
+      "vectorSearchConfiguration": "default"
+    }
+  ],
+  "vectorSearch": {
+    "algorithmConfigurations": [
+      {
+        "name": "default",
+        "kind": "hnsw",
+        "hnswParameters": {
+          "m": 4,
+          "efConstruction": 400,
+          "efSearch": 500,
+          "metric": "cosine"
+        }
+      }
+    ]
+  }
+}

@@ -41,7 +41,7 @@ CLIENT_ID="your-phantom-client-id"
 # ✅ Phantom RBAC App
 PHANTOM_TENANT_ID="ea3ec4a4-f2ae-4f29-95b7-c73bc669a504"
 PHANTOM_APP_CLIENT_ID="36e4c9e4-aa15-4b6f-bd62-05ddec1be39c"
-PHANTOM_APP_SECRET="ixk8Q~2BkTMGm4tSRJ0wj_D2x8.SkkvVJcaIka7h"
+PHANTOM_APP_SECRET=""
 EOF
 
 echo "✅ .env file created successfully at project root."
